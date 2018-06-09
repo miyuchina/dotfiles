@@ -1,0 +1,16 @@
+[alias]
+    aa = add -A
+    br = branch
+    co = checkout
+    ci = commit
+    dd = diff
+    dc = diff --cached
+    st = status
+    l  = log --oneline --graph
+
+[user]
+    email = miyu.china@icloud.com
+    name = Mi Yu
+
+[credential]
+    helper = store
