@@ -1,0 +1,55 @@
+-- vim:set filetype=lua:
+
+conky.config = {
+    alignment = 'middle_middle',
+    background = false,
+    border_width = 1,
+    cpu_avg_samples = 2,
+    default_color = 'white',
+    default_outline_color = 'white',
+    default_shade_color = 'white',
+    draw_borders = false,
+    draw_graph_borders = true,
+    draw_outline = false,
+    draw_shades = false,
+    use_xft = true,
+    font = 'Ubuntu:size=10',
+    gap_x = 5,
+    gap_y = 60,
+    minimum_height = 5,
+    minimum_width = 5,
+    net_avg_samples = 2,
+    no_buffers = true,
+    out_to_console = false,
+    out_to_stderr = false,
+    extra_newline = false,
+    own_window = false,
+    stippled_borders = 0,
+    update_interval = 3.0,
+    uppercase = false,
+    use_spacer = 'none',
+    show_graph_scale = true,
+    show_graph_range = false,
+    temperature_unit = "fahrenheit"
+}
+
+conky.text = [[
+$hr
+${font Ubuntu:size=12}${color grey}${time %B}$color${font}
+${voffset -10}${font Ubuntu Mono:size=100}${alignr}${time %d}${font}
+${voffset 50}${font Ubuntu:size=12}${time %H:%M}${alignr}${color grey}${time %A}${font}$color
+$hr
+${cpubar 40}
+${memgraph 300,500 white grey -t}
+${voffset 5}${color grey}Kernel        $color ${alignr}$kernel
+${voffset 5}${color grey}Hostname      $color ${alignr}$nodename
+${voffset 5}${color grey}Network       $color ${alignr}${downspeed wlp0s20f3}/ ${upspeed wlp0s20f3}
+${voffset 5}${color grey}Wi-Fi         $color ${alignr}$wireless_essid
+${voffset 5}${color grey}Uptime        $color ${alignr}${uptime_short}
+${voffset 5}${color grey}File systems  $color ${alignr}${fs_used /}/${fs_size /}
+$hr
+${voffset 5}${color grey}Weather $color ${alignr}${weather http://tgftp.nws.noaa.gov/data/observations/metar/stations/ KALB cloud_cover 20}
+${voffset 5}${color grey}Temperature $color ${alignr}${weather http://tgftp.nws.noaa.gov/data/observations/metar/stations/ KALB temperature 20}°F
+${voffset 5}${color grey}Humidity $color ${alignr}${weather http://tgftp.nws.noaa.gov/data/observations/metar/stations/ KALB humidity 20}%
+$hr
+]]

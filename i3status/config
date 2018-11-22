@@ -10,6 +10,8 @@ general {
         colors = true
         interval = 5
         color_good = "#88b090"
+        color_degraded = '#e8cd04'
+        color_bad = '#bc3601'
         markup = "pango"
 }
 
@@ -35,7 +37,7 @@ battery all {
 }
 
 tztime local {
-        format = " %Y-%m-%d %H:%M"
+        format = " %Y-%m-%d %H:%M  "
 }
 
 volume master {
