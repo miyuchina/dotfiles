@@ -1,0 +1,20 @@
+#!/bin/sh
+
+run_once () {
+    killall --quiet $1
+    $@ &
+}
+
+main() {
+    run_once compton
+    run_once redshift
+    run_once dunst
+
+    killall polybar
+    polybar left &
+    polybar right &
+
+    /home/mi/.fehbg
+}
+
+main

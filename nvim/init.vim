@@ -22,10 +22,14 @@ set wildignore+=.*,*/venv/*,*/__pycache__/*
 " ========== plugins ==========================================================
 
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'junegunn/goyo.vim'
+Plug 'reedes/vim-pencil'
 Plug 'morhetz/gruvbox'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'miyuchina/neovim-tumbleweed'
+Plug 'ElmCast/elm-vim'
+Plug 'mboughaba/i3config.vim'
 call plug#end()
 
 " ========== key bindings =====================================================

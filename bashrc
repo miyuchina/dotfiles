@@ -56,6 +56,16 @@ __prompt_cmd() {
     fi
 }
 
+# firefox touchscreen scroll
+export MOZ_USE_XINPUT2=1
+
+# rust / cargo
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# npm global packages
+export NPM_CONFIG_PREFIX=~/.npm-packages
+export PATH="$HOME/.npm-packages/bin:$PATH"
+
 ethernet() {
     sudo netctl stop-all
     sudo systemctl start dhcpcd
@@ -66,5 +76,11 @@ wifi() {
     sudo systemctl stop dhcpcd
     sudo ip link set down enp0s31f6
     sudo ip link set down wlp0s20f3
-    sudo netctl start wlp0s20f3-Williams
+    sudo netctl start purple-air
+}
+
+monitor() {
+    xrandr --auto
+    xrandr --output HDMI-0 --scale 2x2 --right-of eDP-1-1
+    ~/.fehbg
 }
