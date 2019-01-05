@@ -6,7 +6,6 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
-PS1='[\u@\h \W]\$ '
 
 # vim settings
 alias  vim=nvim
@@ -66,6 +65,12 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export NPM_CONFIG_PREFIX=~/.npm-packages
 export PATH="$HOME/.npm-packages/bin:$PATH"
 
+# gpg settings
+export GNUPGHOME="$HOME/.config/gnupg"
+
+# pass settings
+export PASSWORD_STORE_DIR="$HOME/.config/pass"
+
 ethernet() {
     sudo netctl stop-all
     sudo systemctl start dhcpcd
@@ -83,4 +88,6 @@ monitor() {
     xrandr --auto
     xrandr --output HDMI-0 --scale 2x2 --right-of eDP-1-1
     ~/.fehbg
+    xcape -e "Hyper_L=Escape"
+    xrdb -merge ~/.Xresources
 }
