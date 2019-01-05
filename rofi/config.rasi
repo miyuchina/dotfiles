@@ -1,0 +1,28 @@
+/* vim: set filetype=css: */
+
+* {
+    background-color: #000000ff;
+    color: #eeeeee;
+    font: "Roboto 28";
+    padding: 0.2em;
+    lines: 7;
+}
+
+#window {
+    padding: 2em;
+    width: 30%;
+}
+
+prompt {
+    font: "Roboto 32";
+    color: #eeeeee;
+}
+
+entry {
+    font: "Roboto 32";
+    color: #eeeeee;
+}
+
+element selected.normal {
+    color: #eeeeee;
+}
