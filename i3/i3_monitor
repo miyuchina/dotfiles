@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+xrandr --auto
+xrandr --output HDMI-0 --scale 2x2 --right-of eDP-1-1
+~/.fehbg
