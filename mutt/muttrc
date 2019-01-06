@@ -65,6 +65,7 @@ macro index,pager a     "<pipe-message>abook --add-email-quiet<return>"        "
 macro pager       \Cl   "<pipe-entry>'urlview'<enter>"
 macro attach      \Cv   "<pipe-entry>cat > ~/.cache/mutt/mail.html && firefox ~/.cache/mutt/mail.html && rm ~/.cache/mutt/mail.html<enter>"
 macro index       S     "<enter-command>unset wait_key<enter><shell-escape>~/.config/mutt/mutt-notmuch.py ~/.mail/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"
+macro compose     \;    "F pandoc -s -f markdown -t html5 --metadata pagetitle=\"mail\"<enter>y^T^Utext/html; charset=utf-8<enter><enter>" "convert to html email"
 
 # sidebar
 source "~/.config/mutt/muttrc.sidebar"

@@ -5,12 +5,14 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls='ls --color=auto'
-
 # vim settings
-alias  vim=nvim
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export EDITOR=nvim
+
+# aliases
+alias ls='ls --color=auto'
+alias v=nvim
+alias m=neomutt
 
 # prompt
 PROMPT_COMMAND=__prompt_cmd
