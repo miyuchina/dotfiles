@@ -13,39 +13,26 @@ set incsearch
 set splitbelow
 set splitright
 
-" lightline
-set noshowmode
-
-" ctrlp
-set wildignore+=.*,*/venv/*,*/__pycache__/*
-
 " ========== plugins ==========================================================
 
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'junegunn/goyo.vim'
-Plug 'reedes/vim-pencil'
 Plug 'morhetz/gruvbox'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'itchyny/lightline.vim'
+Plug 'sheerun/vim-polyglot'
 Plug 'miyuchina/neovim-tumbleweed'
-Plug 'ElmCast/elm-vim'
-Plug 'mboughaba/i3config.vim'
 call plug#end()
 
-" ========== key bindings =====================================================
+" ========== runner settings ===================================================
 
-nnoremap <cr>       :call QuickRun()<cr>
-nnoremap <leader>gr :let g:run_cmd = ""<left>
-nnoremap <leader>br :let b:run_cmd = ""<left>
-nnoremap <leader>ar :let b:async_cmd = ""<left>
-nnoremap <leader>ur :unlet g:run_cmd<cr>
-nnoremap <C-c>      :call TermStop()<cr>
-nnoremap <C-l>      :call TermClear()<cr>
+nnoremap <cr>      :call tumbleweed#term_run(g:tw_cmd)<cr>
+nnoremap <leader>r :let g:tw_cmd = ""<left>
+nnoremap <leader>w :let g:tw_write_cmd = ""<left>
+cnoremap <leader>f " . expand("%") . "
+
+autocmd BufWritePost * call tumbleweed#term_run(g:tw_write_cmd)
 
 " ========== colorscheme ======================================================
 
 set background=dark
-let g:lightline = { 'colorscheme': 'gruvbox' }
 let g:gruvbox_italic = 1
 let g:gruvbox_contrast_dark = 'hard'
 colorscheme gruvbox
