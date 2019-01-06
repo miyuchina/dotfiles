@@ -1,3 +1,5 @@
+# vim:filetype=sh:
+
 setxkbmap -option 'caps:hyper'
 xcape -e "Hyper_L=Escape"
 xrdb -merge ~/.Xresources
