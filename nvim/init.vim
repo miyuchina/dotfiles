@@ -21,15 +21,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'miyuchina/neovim-tumbleweed'
 call plug#end()
 
-" ========== runner settings ===================================================
-
-nnoremap <cr>      :call tumbleweed#term_run(g:tw_cmd)<cr>
-nnoremap <leader>r :let g:tw_cmd = ""<left>
-nnoremap <leader>w :let g:tw_write_cmd = ""<left>
-cnoremap <leader>f " . expand("%") . "
-
-autocmd BufWritePost * call tumbleweed#term_run(g:tw_write_cmd)
-
 " ========== colorscheme ======================================================
 
 set background=dark
