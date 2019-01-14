@@ -233,6 +233,8 @@ bindsym XF86AudioMicMute      exec --no-startup-id "amixer set Capture toggle"
 bindsym XF86MonBrightnessDown exec --no-startup-id "light -U 5; percent_notify 'Brightness' '' $(light)"
 bindsym XF86MonBrightnessUp   exec --no-startup-id "light -A 5; percent_notify 'Brightness' '' $(light)"
 bindsym XF86Display           exec --no-startup-id /home/mi/.config/i3/i3_monitor
+bindsym --release Print       exec --no-startup-id "scrot -e 'mv $f /home/mi/Pictures; dunstify -r 1000 'Saved screenshot!'"
+bindsym --release Shift+Print exec --no-startup-id "scrot -s -e 'mv $f /home/mi/Pictures; dunstify -r 1000 'Saved screenshot!'"
 
 # lock screen
 bindsym $mod+Control+L exec --no-startup-id i3lock -B 10
