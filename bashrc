@@ -65,13 +65,17 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # npm global packages
 export NPM_CONFIG_PREFIX=~/.npm-packages
-export PATH="$HOME/.npm-packages/bin:$PATH"
 
 # gpg settings
 export GNUPGHOME="$HOME/.config/gnupg"
 
 # pass settings
 export PASSWORD_STORE_DIR="$HOME/.config/pass"
+
+magic_capslock() {
+    xrdb -merge ~/.Xresources
+    xcape -e "Hyper_L=Escape"
+}
 
 ethernet() {
     sudo netctl stop-all
@@ -83,13 +87,12 @@ wifi() {
     sudo systemctl stop dhcpcd
     sudo ip link set down enp0s31f6
     sudo ip link set down wlp0s20f3
-    sudo netctl start purple-air
+    sudo netctl restart purple-air
 }
 
 monitor() {
     xrandr --auto
     xrandr --output HDMI-0 --scale 2x2 --right-of eDP-1-1
     ~/.fehbg
-    xcape -e "Hyper_L=Escape"
-    xrdb -merge ~/.Xresources
+    magic_capslock
 }
