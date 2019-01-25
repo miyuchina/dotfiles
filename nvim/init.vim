@@ -16,7 +16,7 @@ set splitright
 " ========== plugins ==========================================================
 
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'morhetz/gruvbox'
+Plug 'dracula/vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'miyuchina/neovim-tumbleweed'
 call plug#end()
@@ -24,6 +24,4 @@ call plug#end()
 " ========== colorscheme ======================================================
 
 set background=dark
-let g:gruvbox_italic = 1
-let g:gruvbox_contrast_dark = 'hard'
-colorscheme gruvbox
+colorscheme dracula
