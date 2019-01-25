@@ -16,13 +16,11 @@ set   index_format  = "%2C | %Z [%d] %-30.30F (%-4.4c) %s"
 set   edit_headers  = yes
 set   editor        = "nvim +/^$"
 set   query_command = "abook --mutt-query '%s'"
-set   attribution   = "On %d, %n wrote:"    # format of quoting header
-set   text_flowed                           # soft line breaks
-set   reply_to                              # reply to Reply to: field
-set   reverse_name                          # reply as whomever it was to
+set   include       = no                    # include message in replies
+set   forward_quote = no                    # include message in forwards
 set   fast_reply                            # skip to compose when replying
-set   include                               # include message in replies
-set   forward_quote                         # include message in forwards
+set   text_flowed                           # soft line breaks
+set   reverse_name                          # reply as whomever it was to
 unset record
 
 # pager
@@ -63,9 +61,11 @@ macro index       O     "<shell-escape>offlineimap<enter>"                     "
 macro index       o     "<shell-escape>offlineimap -qf INBOX<enter>"           "run offlineimap to sync inbox"
 macro index,pager a     "<pipe-message>abook --add-email-quiet<return>"        "Add this sender to Abook"
 macro pager       \Cl   "<pipe-entry>'urlview'<enter>"
-macro attach      \Cv   "<pipe-entry>cat > ~/.cache/mutt/mail.html && firefox ~/.cache/mutt/mail.html && rm ~/.cache/mutt/mail.html<enter>"
-macro index       S     "<enter-command>unset wait_key<enter><shell-escape>~/.config/mutt/mutt-notmuch.py ~/.mail/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"
-macro compose     \;    "F pandoc -s -f markdown -t html5 --metadata pagetitle=\"mail\"<enter>y^T^Utext/html; charset=utf-8<enter><enter>" "convert to html email"
+macro compose     \;    "<filter-entry>pandoc -s -f markdown -t html5 --metadata pagetitle=\"mail\"<enter>y<edit-type>^Utext/html; charset=utf-8<enter><enter>" "convert to html email"
+macro index       S     "<enter-command>unset wait_key<enter> \
+                         <shell-escape>~/.config/mutt/mutt-notmuch.py ~/.mail/temporary/search<enter> \
+                         <change-folder-readonly>+temporary/search<enter>" \
+                                                                               "search mail (using notmuch)"
 
 # sidebar
 source "~/.config/mutt/muttrc.sidebar"
