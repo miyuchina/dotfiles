@@ -4,3 +4,41 @@ Xft.hintstyle: hintfull
 Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
+
+! ========== urxvt settings ====================================
+
+URxvt.font: xft:Consolas Nerd Font:size=10
+URxvt.internalBorder: 50
+URxvt.scrollBar: false
+URxvt.lineSpace: 5
+
+! ----- gruvbox dark (hard) ----- !
+
+! black + darkgrey
+URxvt.color0:  #282828
+URxvt.color8:  #928374
+! dark red + red
+URxvt.color1:  #cc241d
+URxvt.color9:  #fb4934
+! dark green + green
+URxvt.color2:  #98971a
+URxvt.color10: #b8bb26
+! dark yellow + yellow
+URxvt.color3:  #d79921
+URxvt.color11: #fabd2f
+! dark blue + blue
+URxvt.color4:  #458588
+URxvt.color12: #83a598
+! dark magenta + magenta
+URxvt.color5:  #b16286
+URxvt.color13: #d3869b
+! dark cyan + cyan
+URxvt.color6:  #689d6a
+URxvt.color14: #8ec07c
+! light grey + white
+URxvt.color7:  #a89984
+URxvt.color15: #ebdbb2
+
+URxvt.cursorColor: #ebdbb2
+URxvt.background: #1d2021
+URxvt.foreground: #ebdbb2
