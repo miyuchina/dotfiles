@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+volume="$(pamixer --get-volume)"
+muted="$(pamixer --get-mute)"
+
+if   [ $muted = "true" ]; then echo "  muted";
+elif [ $volume -le 33  ]; then echo "奄  $volume%";
+elif [ $volume -le 66  ]; then echo "奔  $volume%";
+else                           echo "墳  $volume%";
+fi

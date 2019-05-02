@@ -10,9 +10,6 @@ general {
         output_format = "i3bar"
         colors = true
         interval = 10
-        color_good = "#b8bb26"
-        color_degraded = '#fabd2f'
-        color_bad = '#fb4934'
         markup = "pango"
 }
 
@@ -20,20 +17,20 @@ order += "volume master"
 order += "battery all"
 order += "wireless _first_"
 order += "ethernet _first_"
-order += "time"
+order += "tztime local"
 
 wireless _first_ {
-        format_up   = "<span color='#bdae93'>直 %ip</span>"
+        format_up   = "<span fgcolor='#282828' bgcolor='#98971a'> 直 %ip  </span>"
         format_down = ""
 }
 
 ethernet _first_ {
-        format_up = " %ip"
+        format_up = "<span fgcolor='#282828' bgcolor='#98971a'>  %ip  </span>"
         format_down = ""
 }
 
 battery all {
-        format = "%status %percentage"
+        format = "<span fgcolor='#282828' bgcolor='#d79921'> %status %percentage  </span>"
         integer_battery_capacity = true
         last_full_capacity = true
         status_full = ""
@@ -43,12 +40,13 @@ battery all {
         threshold_type = time
 }
 
-time {
-        format = " %Y-%m-%d %H:%M  "
+tztime local {
+        format = "<span fgcolor='#282828' bgcolor='#83a598'>  %time  </span>"
+        format_time = "%Y-%m-%d %H:%M"
 }
 
 volume master {
-        format = "墳  %volume"
-        format_muted = "<span color='#bdae93'>婢  %volume</span>"
+        format = "<span fgcolor='#282828' bgcolor='#d3869b'>  墳  %volume  </span>"
+        format_muted = "<span fgcolor='#282828' bgcolor='#d3869b'>  婢  %volume  </span>"
         device = "pulseaudio"
 }
