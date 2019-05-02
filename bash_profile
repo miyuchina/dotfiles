@@ -1,6 +1,4 @@
-#
-# ~/.bash_profile
-#
+# vim: set filetype=sh:
 
 # qt 5 hidpi
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
@@ -11,6 +9,9 @@ export EDITOR=nvim
 
 # firefox touchscreen scroll
 export MOZ_USE_XINPUT2=1
+
+# stack / cabal
+export PATH="$HOME/.local/bin:$PATH"
 
 # rust / cargo
 export PATH="$HOME/.cargo/bin:$PATH"
