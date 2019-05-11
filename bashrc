@@ -68,7 +68,7 @@ wifi() {
     sudo systemctl stop dhcpcd
     sudo ip link set down enp0s31f6
     sudo ip link set down wlp0s20f3
-    sudo netctl restart purple-air
+    sudo netctl restart williams
 }
 
 monitor() {
