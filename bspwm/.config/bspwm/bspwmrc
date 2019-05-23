@@ -8,7 +8,7 @@ xsetroot -cursor_name left_ptr
 fcitx &
 sxhkd &
 $HOME/.config/bspwm/bar.sh &
-$HOME/.fehbg
+feh --bg-fill $HOME/Pictures/wallpaper.jpg
 
 case "$(cat /proc/acpi/bbswitch | cut -d ' ' -f 2)" in
     ON)
