@@ -5,8 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Iosevka:size=9:antialias=true:autohint=true";
-static int borderpx = 40;
+static char *font = "SF Mono:size=9:antialias=true:autohint=true";
+static int borderpx = 50;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -25,7 +25,7 @@ char *vtiden = "\033[?6c";
 
 /* Kerning / character bounding-box multipliers */
 static float cwscale = 1.0;
-static float chscale = 1.1;
+static float chscale = 1.2;
 
 /*
  * word delimiter string
@@ -83,34 +83,38 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* Terminal colors (16 first used in escape sequence) */
-static const char *colorname[] = {
-	"#1d2021",
-	"#cc241d",
-	"#98971a",
-	"#d79921",
-	"#458588",
-	"#b16286",
-	"#689d6a",
-	"#a89984",
-	"#928374",
-	"#fb4934",
-	"#b8bb26",
-	"#fabd2f",
-	"#83a598",
-	"#d3869b",
-	"#8ec07c",
-	"#ebdbb2",
+const char *colorname[] = {
+  "#3b4252", /*  0: nord1 */
+  "#bf616a", /*  1: nord11 */
+  "#a3be8c", /*  2: nord14 */
+  "#ebcb8b", /*  3: nord13 */
+  "#81a1c1", /*  4: nord9 */
+  "#b48ead", /*  5: nord15 */
+  "#88c0d0", /*  6: nord8 */
+  "#e5e9f0", /*  7: nord5 */
+  "#4c566a", /*  8: nord3 */
+  "#bf616a", /*  9: nord11 */
+  "#a3be8c", /* 10: nord14 */
+  "#ebcb8b", /* 11: nord3 */
+  "#81a1c1", /* 12: nord9 */
+  "#b48ead", /* 13: nord15 */
+  "#8fbcbb", /* 14: nord7 */
+  "#eceff4", /* 15: nord6 */
+  [255] = 0,
+  // defaults
+  [256] = "#d8dee9", /* 256: nord4 */
+  [257] = "#2e3440", /* 257: nord0 */
 };
 
-
 /*
- * Default colors (colorname index)
- * foreground, background, cursor, reverse cursor
- */
-unsigned int defaultfg = 15;
-unsigned int defaultbg = 0;
-static unsigned int defaultcs = 15;
-static unsigned int defaultrcs = 15;
+* Default colors (colorname index)
+* foreground, background, cursor, reverse
+* cursor
+*/
+unsigned int defaultfg = 256; /* nord4 */
+unsigned int defaultbg = 257; /* nord0 */
+unsigned int defaultcs = 256; /* nord4 */
+unsigned int defaultrcs = 8;  /* nord3 */
 
 /*
  * Default shape of cursor
@@ -169,6 +173,8 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
+	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
+	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
 };
 
 /*
