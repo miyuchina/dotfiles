@@ -5,6 +5,11 @@ HISTFILESIZE=10000
 HISTCONTROL="erasedups:ignoreboth"
 HISTIGNORE="exit:ls:bg:fg:history"
 
+# fcitx settings
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+
 # vim settings
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export EDITOR=nvim

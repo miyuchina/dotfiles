@@ -5,6 +5,7 @@ xcape -e "Hyper_L=Escape"
 xrdb -merge ~/.Xresources
 xsetroot -cursor_name left_ptr
 
+fcitx &
 sxhkd &
 $HOME/.config/bspwm/bar.sh &
 $HOME/.fehbg
