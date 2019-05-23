@@ -26,10 +26,10 @@ color_blue = \033[1;34m
 color_clear = \033[0m
 
 .PHONY: install
-install: home vim_plug terminal wallpaper acpi
+install: home vim_plug terminal wallpaper acpi wpa_supplicant
 
 .PHONY: clean
-clean: clean_home clean_vim_plug clean_terminal clean_wallpaper clean_acpi
+clean: clean_home clean_vim_plug clean_terminal clean_wallpaper clean_acpi clean_wpa_supplicant
 
 .PHONY: home
 home:
@@ -140,3 +140,17 @@ clean_acpi:
 	@echo -e "$(color_red)Enter your password!$(color_clear)"
 	sudo stow --verbose --target $(acpi_dir) --delete $(acpi_config)
 	@echo -e "$(color_red)Uninstalled ACPI scripts!$(color_clear)"
+
+.PHONY: wpa_supplicant
+wpa_supplicant:
+	@echo -e "$(color_yellow)Installing wpa_supplicant configuration...$(color_clear)"
+	@echo -e "$(color_red)Enter your password!$(color_clear)"
+	./utils/wifi_password.sh
+	@echo -e "$(color_yellow)Installed wpa_supplicant configuration!$(color_clear)"
+
+.PHONY: clean_wpa_supplicant
+clean_wpa_supplicant:
+	@echo -e "$(color_yellow)Installing wpa_supplicant configuration...$(color_clear)"
+	@echo -e "$(color_red)Enter your password!$(color_clear)"
+	sudo rm /etc/wpa_supplicant/wpa_supplicant.conf
+	@echo -e "$(color_yellow)Installed wpa_supplicant configuration!$(color_clear)"
