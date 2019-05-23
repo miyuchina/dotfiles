@@ -131,14 +131,20 @@ clean_wallpaper:
 acpi:
 	@echo -e "$(color_yellow)Installing ACPI scripts...$(color_clear)"
 	@echo -e "$(color_red)Enter your password!$(color_clear)"
-	sudo stow --verbose --target $(acpi_dir) $(acpi_config)
+	sudo cp --verbose $(acpi_config)/action/* $(acpi_dir)/action
+	sudo cp --verbose $(acpi_config)/events/* $(acpi_dir)/events
 	@echo -e "$(color_yellow)Installed ACPI scripts!$(color_clear)"
 
 .PHONY: clean_acpi
 clean_acpi:
 	@echo -e "$(color_red)Uninstalling ACPI scripts...$(color_clear)"
 	@echo -e "$(color_red)Enter your password!$(color_clear)"
-	sudo stow --verbose --target $(acpi_dir) --delete $(acpi_config)
+	-for action in $$(ls $(acpi_config)/action); do \
+	    sudo rm --verbose "$(acpi_dir)/action/$${action}"; \
+	done
+	-for event in $$(ls $(acpi_config)/events); do \
+	    sudo rm --verbose "$(acpi_dir)/events/$${event}"; \
+	done
 	@echo -e "$(color_red)Uninstalled ACPI scripts!$(color_clear)"
 
 .PHONY: wpa_supplicant
