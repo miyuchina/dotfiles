@@ -10,8 +10,10 @@ shopt -s cdspell
 alias ls='ls --color=auto'
 alias v=nvim
 
-PS1='[\u@\h \W]\$ '
-
 # fzf
-source /usr/share/fzf/key-bindings.bash
-source /usr/share/fzf/completion.bash
+source "${HOME}/.local/share/fzf/key-bindings.bash"
+source "${HOME}/.local/share/fzf/completion.bash"
+
+function cd {
+    builtin cd "$@" && ls
+}
