@@ -8,7 +8,7 @@ super + Return
 
 # launch browser
 super + @space
-	google-chrome-stable
+	firefox-bin
 
 # make sxhkd reload its configuration files:
 super + Escape
