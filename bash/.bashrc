@@ -11,8 +11,8 @@ alias ls='ls --color=auto'
 alias v=nvim
 
 # fzf
-source "${HOME}/.local/share/fzf/key-bindings.bash"
-source "${HOME}/.local/share/fzf/completion.bash"
+source "${HOME}/.local/share/fzf/shell/key-bindings.bash"
+source "${HOME}/.local/share/fzf/shell/completion.bash"
 
 function cd {
     builtin cd "$@" && ls

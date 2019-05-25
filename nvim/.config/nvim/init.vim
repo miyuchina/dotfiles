@@ -25,6 +25,9 @@ let g:mapleader = "\<space>"
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'sheerun/vim-polyglot'
 Plug 'arcticicestudio/nord-vim'
+Plug 'junegunn/fzf', {
+            \ 'dir': '~/.local/share/fzf',
+            \ 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 call plug#end()
 
