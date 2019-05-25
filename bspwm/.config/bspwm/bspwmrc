@@ -19,13 +19,16 @@ case "$(cat /proc/acpi/bbswitch | cut -d ' ' -f 2)" in
 esac
 
 sxhkd &
+redshift &
 feh --no-fehbg --bg-fill $HOME/Pictures/wallpaper.jpg
-$HOME/.config/bspwm/bar.sh &
 
-bspc config border_width 3
 bspc config window_gap  25
+bspc config border_width 4
 
-bspc config split_ratio               0.6
+bspc config normal_border_color  '#3b4252'
+bspc config focused_border_color '#81a1c1'
+
+bspc config split_ratio               0.55
 bspc config borderless_monocle        true
 bspc config gapless_monocle           true
 bspc config focus_follows_pointer     true
