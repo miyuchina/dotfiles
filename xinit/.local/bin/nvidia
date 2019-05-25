@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+check_off() {
+    [[ "$(cat /proc/acpi/bbswitch | cut -d ' ' -f 2)" == "OFF" ]]
+}
+
+load_nvidia() {
+    echo ON | sudo tee /proc/acpi/bbswitch
+    sudo modprobe nvidia-drm
+    sudo modprobe nvidia-modeset
+    sudo modprobe nvidia
+    sudo mv /etc/X11/nvidia-xorg.conf /etc/X11/xorg.conf
+}
+
+unload_nvidia() {
+    sudo rmmod nvidia-drm
+    sudo rmmod nvidia-modeset
+    sudo rmmod nvidia
+    echo OFF | sudo tee /proc/acpi/bbswitch
+    sudo mv /etc/X11/xorg.conf /etc/X11/nvidia-xorg.conf
+}
+
+help() {
+    echo "Usage: nvidia <on|off>"
+}
+
+if [[ "$1" == "on" ]]; then
+    if check_off; then
+        load_nvidia
+    else
+        echo "NVIDIA card already on."
+    fi
+elif [[ "$1" == "off" ]]; then
+    if check_off; then
+        echo "NVIDIA card already off."
+    else
+        unload_nvidia
+    fi
+else
+    help
+fi
