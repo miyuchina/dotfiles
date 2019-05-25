@@ -1,2 +1,2 @@
 event=video/brightnessup
-action=/etc/acpi/action/backlight.sh +5
+action=/etc/acpi/actions/backlight.sh +5

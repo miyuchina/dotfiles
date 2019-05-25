@@ -12,13 +12,13 @@ terminal_patch_urls = \
     'https://st.suckless.org/patches/vertcenter/st-vertcenter-20180320-6ac8c8a.diff' \
     'https://st.suckless.org/patches/scrollback/st-scrollback-20190331-21367a0.diff'
 
+acpi_config = acpi
+acpi_target = /etc/acpi
+
 wallpaper_url = 'https://images.unsplash.com/photo-1519334216607-0a0f0ed992cb'
 wallpaper_dir = $(HOME)/Pictures
 wallpaper_target = $(wallpaper_dir)/wallpaper.jpg
 wallpaper_script = $(HOME)/.fehbg
-
-acpi_config = acpi
-acpi_dir = /etc/acpi
 
 color_red = \033[1;31m
 color_yellow = \033[1;33m
@@ -26,10 +26,10 @@ color_blue = \033[1;34m
 color_clear = \033[0m
 
 .PHONY: install
-install: home vim_plug terminal wallpaper acpi wpa_supplicant
+install: home vim_plug terminal wallpaper wpa_supplicant
 
 .PHONY: clean
-clean: clean_home clean_vim_plug clean_terminal clean_wallpaper clean_acpi clean_wpa_supplicant
+clean: clean_home clean_vim_plug clean_terminal clean_wallpaper clean_wpa_supplicant
 
 .PHONY: home
 home:
@@ -102,6 +102,25 @@ clean_terminal:
 		make clean && sudo make uninstall
 	@echo -e "$(color_red)Removed terminal!$(color_clear)"
 
+.PHONY: acpi
+acpi:
+	@echo -e "$(color_blue)ACPI target: $(acpi_target)$(color_clear)"
+	@echo -e "$(color_yellow)Installing ACPI scripts...$(color_clear)"
+	@echo -e "$(color_red)Removing directory at ACPI target...$(color_clear)"
+	@echo -e "$(color_red)Enter your password!$(color_clear)"
+	sudo rm --verbose -rf $(acpi_target)
+	@echo -e "$(color_yellow)Copying ACPI configs...$(color_clear)"
+	sudo cp --verbose --recursive $(acpi_config) $(acpi_target)
+	@echo -e "$(color_yellow)ACPI scripts installed!$(color_clear)"
+
+.PHONY: clean_acpi
+clean_acpi:
+	@echo -e "$(color_blue)ACPI target: $(acpi_target)$(color_clear)"
+	@echo -e "$(color_red)Uninstalling ACPI scripts...$(color_clear)"
+	@echo -e "$(color_red)Enter your password!$(color_clear)"
+	sudo rm --verbose -rf $(acpi_target)
+	@echo -e "$(color_red)Removed ACPI scripts!$(color_clear)"
+
 .PHONY: wallpaper
 wallpaper:
 	@echo -e "$(color_blue)Wallpaper directory: $(wallpaper_dir)$(color_clear)"
@@ -126,26 +145,6 @@ clean_wallpaper:
 	@echo -e "$(color_red)Removing feh script...$(color_clear)"
 	-rm --verbose $(wallpaper_script)
 	@echo -e "$(color_red)Removed wallpaper!$(color_clear)"
-
-.PHONY: acpi
-acpi:
-	@echo -e "$(color_yellow)Installing ACPI scripts...$(color_clear)"
-	@echo -e "$(color_red)Enter your password!$(color_clear)"
-	sudo cp --verbose $(acpi_config)/action/* $(acpi_dir)/action
-	sudo cp --verbose $(acpi_config)/events/* $(acpi_dir)/events
-	@echo -e "$(color_yellow)Installed ACPI scripts!$(color_clear)"
-
-.PHONY: clean_acpi
-clean_acpi:
-	@echo -e "$(color_red)Uninstalling ACPI scripts...$(color_clear)"
-	@echo -e "$(color_red)Enter your password!$(color_clear)"
-	-for action in $$(ls $(acpi_config)/action); do \
-	    sudo rm --verbose "$(acpi_dir)/action/$${action}"; \
-	done
-	-for event in $$(ls $(acpi_config)/events); do \
-	    sudo rm --verbose "$(acpi_dir)/events/$${event}"; \
-	done
-	@echo -e "$(color_red)Uninstalled ACPI scripts!$(color_clear)"
 
 .PHONY: wpa_supplicant
 wpa_supplicant:
