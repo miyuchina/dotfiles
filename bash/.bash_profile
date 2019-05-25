@@ -8,6 +8,9 @@ HISTIGNORE="exit:ls:bg:fg:history"
 # local bin
 export PATH="${HOME}/.local/bin:${PATH}"
 
+# firefox
+export MOZ_USE_XINPUT2=1
+
 # vim settings
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export EDITOR=nvim
