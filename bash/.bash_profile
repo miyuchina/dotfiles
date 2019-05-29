@@ -7,6 +7,8 @@ HISTIGNORE="exit:ls:bg:fg:history"
 
 # local bin
 export PATH="${HOME}/.local/bin:${PATH}"
+export MANPATH="${HOME}/.local/share/man:${MANPATH}"
+export TERMINFO="${HOME}/.local/share/terminfo"
 
 # firefox
 export MOZ_USE_XINPUT2=1
