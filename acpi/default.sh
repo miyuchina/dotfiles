@@ -31,7 +31,7 @@ case "$group" in
             lid)
                 case "$id" in
                     close) s2ram;;
-                    open) :;;
+                    open) intel-undervolt apply;;
                     *) log_unhandled $*;;
                 esac
                 ;;
