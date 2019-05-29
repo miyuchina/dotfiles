@@ -19,7 +19,8 @@ case "$(cat /proc/acpi/bbswitch | cut -d ' ' -f 2)" in
 esac
 
 sxhkd &
-redshift &
+status | lemonbar -f "SF Mono:size=9" -g "x60" -F "#e5e9f0" -B "#2e3440" &
+killall redshift; redshift &
 feh --no-fehbg --bg-fill $HOME/Pictures/wallpaper.jpg
 
 bspc config window_gap  25
