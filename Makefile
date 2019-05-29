@@ -80,8 +80,7 @@ terminal:
 		)                                        \
 	    done &&                                      \
 	    make
-	@echo -e "$(color_red)Enter your password!$(color_clear)"
-	cd $(terminal_git_dir) && sudo make install
+	cd $(terminal_git_dir) && make PREFIX="$${HOME}/.local" install
 	@echo -e "$(color_yellow)Installed terminal!$(color_clear)"
 
 .PHONY: clean_terminal
