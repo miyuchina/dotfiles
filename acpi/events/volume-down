@@ -1,2 +1,2 @@
 event=button/volumedown
-action=amixer set Master 5-
+action=amixer sset Master on && amixer sset Master 5-
