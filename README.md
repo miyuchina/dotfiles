@@ -1,3 +1,5 @@
+![screenshot](screenshot.png)
+
 # Dotfiles
 
 This repository contains my latest dotfiles.
@@ -5,7 +7,7 @@ This repository contains my latest dotfiles.
 - **OS**: Gentoo/Linux
 - **Terminal**: [simple terminal](https://st.suckless.org/)
 - **WM**: [bspwm](https://github.com/baskerville/bspwm)
-- **Bar**: [lemonbar](https://github.com/LemonBoy/bar)
+- **Bar**: [lemonbar](https://github.com/LemonBoy/bar) with custom [status](https://github.com/miyuchina/status)
 - **Editor**: [neovim](https://neovim.io/)
 - **Fonts**: [San Francisco family](https://github.com/windyboy1704/San-Francisco-family)
 - **Colorscheme**: [Nord](https://github.com/arcticicestudio/nord)
