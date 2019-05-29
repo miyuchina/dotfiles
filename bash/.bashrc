@@ -3,7 +3,6 @@
 
 shopt -s histappend
 shopt -s cmdhist
-shopt -s autocd
 shopt -s dirspell
 shopt -s cdspell
 
@@ -13,7 +12,3 @@ alias v=nvim
 # fzf
 source "${HOME}/.local/share/fzf/shell/key-bindings.bash"
 source "${HOME}/.local/share/fzf/shell/completion.bash"
-
-function cd {
-    builtin cd "$@" && ls
-}
