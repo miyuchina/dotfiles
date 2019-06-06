@@ -25,9 +25,9 @@ feh --no-fehbg --bg-fill $HOME/Pictures/wallpaper.jpg
 status | lemonbar -f "SF Mono:size=9" -g "x60" -F "#e5e9f0" -B "#2e3440" &
 
 bspc config window_gap  25
-bspc config border_width 4
+bspc config border_width 5
 
-bspc config normal_border_color  '#3b4252'
+bspc config normal_border_color  '#2e3440'
 bspc config focused_border_color '#81a1c1'
 
 bspc config split_ratio               0.55
