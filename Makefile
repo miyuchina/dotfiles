@@ -1,4 +1,4 @@
-home_configs = bash bspwm fonts git nvim redshift sxhkd tmux xinit
+home_configs = bash bspwm fonts git nvim redshift sxhkd xinit
 
 vim_dir = $(HOME)/.local/share/nvim
 vim_plug_dir = $(vim_dir)/plugged
