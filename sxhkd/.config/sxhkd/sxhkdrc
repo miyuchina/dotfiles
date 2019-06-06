@@ -20,7 +20,10 @@ super + Escape
 
 # quit/restart bspwm
 super + alt + {q,r}
-	killall status && bspc {quit,wm -r}
+	killall syncthing && \
+        killall status && \
+        killall redshift && \
+        bspc {quit,wm -r}
 
 # close and kill
 super + {_,shift + }w
