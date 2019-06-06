@@ -5,10 +5,18 @@ HISTFILESIZE=10000
 HISTCONTROL="erasedups:ignoreboth"
 HISTIGNORE="exit:ls:bg:fg:history"
 
+export LOCALPATH="${HOME}/.local"
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_DATA_HOME="${HOME}/.local/share"
+
 # local bin
-export PATH="${HOME}/.local/bin:${PATH}"
-export MANPATH="${HOME}/.local/share/man:${MANPATH}"
-export TERMINFO="${HOME}/.local/share/terminfo"
+export PATH="${LOCALPATH}/bin:${PATH}"
+export MANPATH="${XDG_DATA_HOME}/man:${MANPATH}"
+
+# latex
+export PATH="${XDG_DATA_HOME}/texlive/2019/bin/x86_64-linux:${PATH}"
+export MANPATH="${XDG_DATA_HOME}/texlive/2019/texmf-dist/doc/man:${MANPATH}"
+export INFOPATH="${XDG_DATA_HOME}/texlive/2019/texmf-dist/doc/info:${INFOPATH}"
 
 # firefox
 export MOZ_USE_XINPUT2=1
@@ -18,10 +26,10 @@ export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export EDITOR=nvim
 
 # gpg settings
-export GNUPGHOME="$HOME/.config/gnupg"
+export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
 
 # pass settings
-export PASSWORD_STORE_DIR="$HOME/.config/pass"
+export PASSWORD_STORE_DIR="${XDG_CONFIG_HOME}/pass"
 
 # fzf settings
 export FZF_DEFAULT_OPTS="

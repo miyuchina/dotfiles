@@ -7,8 +7,11 @@ shopt -s dirspell
 shopt -s cdspell
 
 alias ls='ls --color=auto'
-alias v=nvim
+alias v="nvim"
 
 # fzf
-source "${HOME}/.local/share/fzf/shell/key-bindings.bash"
-source "${HOME}/.local/share/fzf/shell/completion.bash"
+source "${LOCALPATH}/share/fzf/shell/key-bindings.bash"
+source "${LOCALPATH}/share/fzf/shell/completion.bash"
+
+# pandoc
+eval "$(pandoc --bash-completion)"
