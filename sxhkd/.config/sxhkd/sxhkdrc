@@ -6,9 +6,9 @@
 super + Return
 	st -e tmux
 
-# launch browser
+# launcher
 super + @space
-	firefox
+	st -t 'launcher' -e bash -ic "compgen -c | fzf | (xargs nohup > /dev/null 2>&1 &)"
 
 # make sxhkd reload its configuration files:
 super + Escape
