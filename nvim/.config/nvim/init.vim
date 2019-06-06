@@ -29,8 +29,11 @@ Plug 'sheerun/vim-polyglot'
 Plug 'arcticicestudio/nord-vim'
 Plug 'junegunn/fzf', {
             \ 'dir': '~/.local/share/fzf',
-            \ 'do': './install --bin' }
+            \ 'do': './install --bin'
+            \ }
 Plug 'junegunn/fzf.vim'
+Plug 'gentoo/gentoo-syntax'
+Plug 'miyuchina/nvim-termrun'
 call plug#end()
 
 " fzf
