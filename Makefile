@@ -62,45 +62,6 @@ clean_vim_plug:
 	    rm -rf $(vim_plug_dir)
 	@echo -e "$(color_red)Removed vim-plug.$(color_clear)"
 
-.PHONY: terminal
-terminal:
-	@echo -e "$(color_blue)Cloning terminal from: $(terminal_git_url)$(color_clear)"
-	@echo -e "$(color_yellow)Installing terminal...$(color_clear)"
-	[ -d $(terminal_git_dir) ] || \
-	    git clone $(terminal_git_url) $(terminal_git_dir)
-	@echo -e "$(color_yellow)Installing custom config...$(color_clear)"
-	stow --verbose --target $(terminal_git_dir) $(terminal_config)
-	@echo -e "$(color_yellow)Applying patches...$(color_clear)"
-	cd $(terminal_git_dir) && \
-	    for patch_url in $(terminal_patch_urls); do  \
-		patch="$$(basename "$${patch_url}")" &&  \
-		[ -f "$${patch}" ] || (                  \
-		    wget --no-verbose "$${patch_url}" && \
-		    git apply "$${patch}"                \
-		)                                        \
-	    done &&                                      \
-	    make
-	cd $(terminal_git_dir) && make PREFIX="$${HOME}/.local" install
-	@echo -e "$(color_yellow)Installed terminal!$(color_clear)"
-
-.PHONY: clean_terminal
-clean_terminal:
-	@echo -e "$(color_red)Removing terminal...$(color_clear)"
-	[ -d $(terminal_git_dir) ] && \
-	    stow --verbose --target $(terminal_git_dir) \
-		--delete $(terminal_config) && \
-	    cd $(terminal_git_dir) && \
-		for patch_url in $(terminal_patch_urls); do  \
-		    patch="$$(basename "$${patch_url}")" &&  \
-		    [ -f "$${patch}" ] || (                  \
-			git apply --reverse "$${patch}" &&   \
-			rm "$${patch}"                       \
-		    )                                        \
-		done &&                                      \
-		echo -e "$(color_red)Enter your password!$(color_clear)" && \
-		make clean && sudo make uninstall
-	@echo -e "$(color_red)Removed terminal!$(color_clear)"
-
 .PHONY: acpi
 acpi:
 	@echo -e "$(color_blue)ACPI target: $(acpi_target)$(color_clear)"
