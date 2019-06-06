@@ -9,12 +9,14 @@ set expandtab
 
 set nohlsearch
 set incsearch
+set inccommand=nosplit
 
 set splitbelow
 set splitright
 
 set number
 set showcmd
+set cursorline
 
 set undofile
 
