@@ -1,9 +1,9 @@
 # bash history
-HISTSIZE=50000
-HISTFILESIZE=10000
+export HISTSIZE=50000
+export HISTFILESIZE=10000
 
-HISTCONTROL="erasedups:ignoreboth"
-HISTIGNORE="exit:ls:bg:fg:history"
+export HISTCONTROL="erasedups:ignoreboth"
+export HISTIGNORE="exit:ls:bg:fg:history"
 
 export LOCALPATH="${HOME}/.local"
 export XDG_CONFIG_HOME="${HOME}/.config"
