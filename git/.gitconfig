@@ -11,6 +11,10 @@
 [user]
     email = miyu.chs@gmail.com
     name = Mi Yu
+    signingkey = mi@afteryu.me
 
 [credential]
     helper = store
+
+[commit]
+    gpgsign = true
