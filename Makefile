@@ -1,4 +1,4 @@
-home_configs = bash bspwm fonts git nvim redshift sxhkd xinit
+home_configs = bash bspwm dunst fonts git gtk nvim polybar redshift sxhkd xinit
 
 vim_dir = $(HOME)/.local/share/nvim
 vim_plug_dir = $(vim_dir)/plugged
@@ -11,9 +11,6 @@ terminal_git_dir = 'st-git'
 terminal_patch_urls = \
     'https://st.suckless.org/patches/vertcenter/st-vertcenter-20180320-6ac8c8a.diff' \
     'https://st.suckless.org/patches/scrollback/st-scrollback-20190331-21367a0.diff'
-
-acpi_config = acpi
-acpi_target = /etc/acpi
 
 wallpaper_url = 'https://images.unsplash.com/photo-1519334216607-0a0f0ed992cb'
 wallpaper_dir = $(HOME)/Pictures
@@ -61,25 +58,6 @@ clean_vim_plug:
 	[ -d $(vim_plug_dir) ] && \
 	    rm -rf $(vim_plug_dir)
 	@echo -e "$(color_red)Removed vim-plug.$(color_clear)"
-
-.PHONY: acpi
-acpi:
-	@echo -e "$(color_blue)ACPI target: $(acpi_target)$(color_clear)"
-	@echo -e "$(color_yellow)Installing ACPI scripts...$(color_clear)"
-	@echo -e "$(color_red)Removing directory at ACPI target...$(color_clear)"
-	@echo -e "$(color_red)Enter your password!$(color_clear)"
-	sudo rm --verbose -rf $(acpi_target)
-	@echo -e "$(color_yellow)Copying ACPI configs...$(color_clear)"
-	sudo cp --verbose --recursive $(acpi_config) $(acpi_target)
-	@echo -e "$(color_yellow)ACPI scripts installed!$(color_clear)"
-
-.PHONY: clean_acpi
-clean_acpi:
-	@echo -e "$(color_blue)ACPI target: $(acpi_target)$(color_clear)"
-	@echo -e "$(color_red)Uninstalling ACPI scripts...$(color_clear)"
-	@echo -e "$(color_red)Enter your password!$(color_clear)"
-	sudo rm --verbose -rf $(acpi_target)
-	@echo -e "$(color_red)Removed ACPI scripts!$(color_clear)"
 
 .PHONY: wallpaper
 wallpaper:
