@@ -9,12 +9,9 @@
     l  = log --oneline --graph
 
 [user]
-    email = miyu.chs@gmail.com
+    email = mi@afteryu.me
     name = Mi Yu
     signingkey = mi@afteryu.me
-
-[credential]
-    helper = store
 
 [commit]
     gpgsign = true
