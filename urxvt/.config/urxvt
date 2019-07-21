@@ -1,0 +1,12 @@
+! vim: filetype=xdefaults:
+
+URxvt.font:           xft:SF Mono:size=9, xft:PingFang SC:size=9
+URxvt.scrollBar:      false
+URxvt.internalBorder: 50
+URxvt.letterSpace:    -1
+URxvt.lineSpace:      8
+URxvt.preeditType:    Root
+URxvt.perl-ext:       default,matcher
+URxvt.url-launcher:   /usr/bin/firefox
+URxvt.matcher.button: 1
+URxvt.matcher.rend.0: Uline fg6
