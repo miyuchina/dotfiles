@@ -1,8 +1,9 @@
 # vim:filetype=sh:
 
-export XMODIFIERS="@im=fcitx"
-export QT_IM_MODULE=fcitx
-export GTK_IM_MODULE=fcitx
+setxkbmap -option 'caps:hyper'
+xcape -e "Hyper_L=Escape"
+xrdb -merge ~/.Xresources
+xsetroot -xcf /usr/share/cursors/xorg-x11/Adwaita/cursors/left_ptr 48
 
 eval "$(dbus-launch --sh-syntax --exit-with-session)"
 fcitx &
