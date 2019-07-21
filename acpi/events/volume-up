@@ -1,2 +1,0 @@
-event=button/volumeup
-action=amixer sset Master on && amixer sset Master 5+
