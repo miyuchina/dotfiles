@@ -21,8 +21,8 @@ export QT_IM_MODULE=fcitx
 export GTK_IM_MODULE=fcitx
 
 sxhkd &
+fcitx &
 redshift &
-syncthing &
 feh --no-fehbg --bg-fill $HOME/Pictures/wallpaper.jpg
 polybar nord &
 syncthing | logger &
