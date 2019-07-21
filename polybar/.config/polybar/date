@@ -1,0 +1,19 @@
+#!/bin/bash
+
+t=0
+
+toggle() {
+    t=$(((t + 1) % 2))
+}
+
+trap "toggle" USR1
+
+while true; do
+    if [ $t -eq 0 ]; then
+        date +'%F %R'
+    else
+        ${HOME}/.config/polybar/darksky || cat ${HOME}/.cache/darksky || echo "weather unavailable"
+    fi
+    sleep 60 &
+    wait
+done

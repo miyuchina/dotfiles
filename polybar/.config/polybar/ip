@@ -1,0 +1,29 @@
+#!/bin/bash
+
+t=0
+
+toggle() {
+    t=$(((t + 1) % 2))
+}
+
+trap "toggle" USR1
+
+URL='https://api.duckduckgo.com/?q=ip&format=json&t=polybar'
+
+update() {
+    answer="$(curl -s --max-time 5 "${URL}" | jq -r .Answer)"
+
+    ip="$(echo ${answer} | grep -Po '(\d+\.){3}\d+')"
+    location="$(echo ${answer} | grep -Po '(?<=>)(.+?)(?=\()' | xargs)"
+}
+
+while true; do
+    update
+    if [ $t -eq 0 ]; then
+        echo "${ip}"
+    else
+        echo "${location}"
+    fi
+    sleep 5 &
+    wait
+done

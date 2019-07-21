@@ -1,0 +1,99 @@
+[colors]
+background = ${xrdb:background:#000000}
+foreground = ${xrdb:foreground:#000000}
+focused = ${xrdb:color1:#ff0000}
+faded = ${xrdb:color8:#000000}
+alert = ${xrdb:color3:#ffff00}
+
+[bar/nord]
+width = 100%
+height = 60
+fixed-center = true
+separator = " | "
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+padding-left = 0
+padding-right = 2
+
+font-0 = monospace:size=20;5
+
+modules-left = bspwm
+modules-center = date
+modules-right = pulseaudio battery ip
+
+tray-position = right
+tray-padding = 2
+;tray-background = #0063ff
+
+wm-restack = bspwm
+
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %name%
+label-focused-background = ${colors.focused}
+label-focused-padding = 1
+
+label-occupied = %name%
+label-occupied-background = ${colors.faded}
+label-occupied-padding = 1
+
+label-urgent = %name%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+
+label-empty = %name%
+label-empty-foreground = ${colors.foreground}
+label-empty-padding = 1
+
+[module/date]
+type = custom/script
+exec = /home/mi/.config/polybar/date
+tail = true
+click-left = kill -USR1 %pid%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+format-volume = <label-volume>
+
+label-volume = VOL %percentage%%
+label-volume-foreground = ${colors.foreground}
+
+label-muted = VOL %percentage%%
+format-muted-foreground = ${colors.faded}
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 98
+
+label-charging = CHR %percentage%%
+label-discharging = BAT %percentage%%
+label-full = FUL %percentage%%
+
+[module/ip]
+type = custom/script
+exec = /home/mi/.config/polybar/ip
+tail = true
+click-left = kill -USR1 %pid%
+
+[module/weather]
+type = custom/script
+exec = darksky
+interval = 120
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+
+; vim:ft=dosini
