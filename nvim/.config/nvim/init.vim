@@ -1,7 +1,5 @@
 " ========== behavior =========================================================
 
-set termguicolors
-
 set tabstop=8
 set softtabstop=4
 set shiftwidth=4
@@ -16,7 +14,6 @@ set splitright
 
 set number
 set showcmd
-set cursorline
 
 set undofile
 
@@ -26,7 +23,6 @@ let g:mapleader = "\<space>"
 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'sheerun/vim-polyglot'
-Plug 'arcticicestudio/nord-vim'
 Plug 'junegunn/fzf', {
             \ 'dir': '~/.local/share/fzf',
             \ 'do': './install --bin'
@@ -34,6 +30,7 @@ Plug 'junegunn/fzf', {
 Plug 'junegunn/fzf.vim'
 Plug 'gentoo/gentoo-syntax'
 Plug 'miyuchina/nvim-termrun'
+Plug 'miyuchina/vim-sane'
 call plug#end()
 
 " fzf
@@ -41,6 +38,4 @@ nnoremap <leader><space> :Files<cr>
 
 " ========== colorscheme ======================================================
 
-let g:nord_italic = 1
-let g:nord_italic_comments = 1
-colorscheme nord
+colorscheme sane
