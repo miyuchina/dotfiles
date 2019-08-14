@@ -41,3 +41,10 @@ nnoremap <leader><space> :Files<cr>
 " ========== colorscheme ======================================================
 
 colorscheme sane
+
+function! SynGroup()
+    let l:s = synID(line('.'), col('.'), 1)
+    echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
+endfunction
+
+nnoremap <leader>s :call SynGroup()<cr>
