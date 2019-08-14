@@ -1,21 +1,9 @@
-home_configs = bash bspwm dunst fonts git gtk nvim polybar redshift sxhkd xinit
+home_configs = bash bspwm compton dunst fonts git gtk mail nvim polybar redshift sxhkd urxvt xinit
 
 vim_dir = $(HOME)/.local/share/nvim
 vim_plug_dir = $(vim_dir)/plugged
 vim_plug_file = $(vim_dir)/site/autoload/plug.vim 
 vim_plug_url = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
-terminal_config = st
-terminal_git_url = 'https://git.suckless.org/st'
-terminal_git_dir = 'st-git'
-terminal_patch_urls = \
-    'https://st.suckless.org/patches/vertcenter/st-vertcenter-20180320-6ac8c8a.diff' \
-    'https://st.suckless.org/patches/scrollback/st-scrollback-20190331-21367a0.diff'
-
-wallpaper_url = 'https://images.unsplash.com/photo-1519334216607-0a0f0ed992cb'
-wallpaper_dir = $(HOME)/Pictures
-wallpaper_target = $(wallpaper_dir)/wallpaper.jpg
-wallpaper_script = $(HOME)/.fehbg
 
 color_red = \033[1;31m
 color_yellow = \033[1;33m
@@ -23,7 +11,7 @@ color_blue = \033[1;34m
 color_clear = \033[0m
 
 .PHONY: install
-install: home vim_plug terminal wallpaper wpa_supplicant
+install: home vim_plug wpa_supplicant
 
 .PHONY: clean
 clean: clean_home clean_vim_plug clean_terminal clean_wallpaper clean_wpa_supplicant
