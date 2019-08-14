@@ -17,6 +17,8 @@ set showcmd
 
 set undofile
 
+set statusline=%<%f\ %h%m%r%=%-15.(%l,%c%V%)\ %p%%\ %y
+
 let g:mapleader = "\<space>"
 
 " ========== plugins ==========================================================
