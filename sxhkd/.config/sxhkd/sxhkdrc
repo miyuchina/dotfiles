@@ -6,10 +6,10 @@ XF86AudioMute
     pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 XF86AudioRaiseVolume
-    pactl set-sink-volume @DEFAULT_SINK@ +10%
+    amixer -q set Master 5%+ unmute
 
 XF86AudioLowerVolume
-    pactl set-sink-volume @DEFAULT_SINK@ -10%
+    amixer -q set Master 5%- unmute
 
 XF86MonBrightnessUp
     light -A 5
