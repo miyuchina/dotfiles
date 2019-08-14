@@ -5,9 +5,11 @@ focused = ${xrdb:color1:#ff0000}
 faded = ${xrdb:color8:#000000}
 alert = ${xrdb:color3:#ffff00}
 
-[bar/nord]
+[bar/bar]
+dpi = 220
 width = 100%
 height = 60
+
 fixed-center = true
 separator = " | "
 
@@ -17,14 +19,15 @@ foreground = ${colors.foreground}
 padding-left = 0
 padding-right = 2
 
-font-0 = monospace:size=20;5
+font-0 = monospace:size=9;5
 
 modules-left = bspwm
 modules-center = date
 modules-right = pulseaudio battery ip
 
 tray-position = right
-tray-padding = 2
+tray-padding = 0
+tray-maxsize = 30
 ;tray-background = #0063ff
 
 wm-restack = bspwm
@@ -55,10 +58,8 @@ label-empty-foreground = ${colors.foreground}
 label-empty-padding = 1
 
 [module/date]
-type = custom/script
-exec = /home/mi/.config/polybar/date
-tail = true
-click-left = kill -USR1 %pid%
+type = internal/date
+date = %Y-%m-%d %H:%M
 
 [module/pulseaudio]
 type = internal/pulseaudio
