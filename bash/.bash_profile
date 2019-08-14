@@ -11,18 +11,15 @@ export XDG_DATA_HOME="${HOME}/.local/share"
 
 # local bin
 export PATH="${LOCALPATH}/bin:${PATH}"
-export MANPATH="${XDG_DATA_HOME}/man:${MANPATH}"
 
-# latex
-export PATH="${XDG_DATA_HOME}/texlive/2019/bin/x86_64-linux:${PATH}"
-export MANPATH="${XDG_DATA_HOME}/texlive/2019/texmf-dist/doc/man:${MANPATH}"
-export INFOPATH="${XDG_DATA_HOME}/texlive/2019/texmf-dist/doc/info:${INFOPATH}"
+# HiDPI scaling
+export GDK_SCALE=2
+export GDK_DPI_SCALE=0.5
 
 # firefox
 export MOZ_USE_XINPUT2=1
 
 # vim settings
-export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export EDITOR=nvim
 
 # gpg settings
@@ -40,7 +37,7 @@ export FZF_DEFAULT_OPTS="
 export FZF_CTRL_T_OPTS="
     --ansi
     --preview-window 'right:60%'
-    --preview 'bat --line-range :100 {} 2> /dev/null || tree -C {}'"
+    --preview 'highlight --out-format=xterm256 --style=pablo {} 2> /dev/null || tree -C {}'"
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
