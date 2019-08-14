@@ -34,4 +34,13 @@ Xft.rgba:       rgb
 *.color7:       #F6F7F8
 *.color15:      #E1E2E4
 
-#include "/home/mi/.config/urxvt"
+! urxvt
+URxvt.font:           xft:SF Mono:size=9, xft:PingFang SC:size=9
+URxvt.scrollBar:      false
+URxvt.internalBorder: 50
+URxvt.lineSpace:      8
+URxvt.preeditType:    Root
+URxvt.perl-ext:       default,matcher
+URxvt.url-launcher:   /usr/bin/xdg-open
+URxvt.matcher.button: 1
+URxvt.matcher.rend.0: Uline fg6
