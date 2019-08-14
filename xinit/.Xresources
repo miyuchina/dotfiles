@@ -1,9 +1,6 @@
 Xft.dpi:        220
-Xft.autohint:   0
-Xft.hintstyle:  hintfull
-Xft.hinting:    1
-Xft.antialias:  1
-Xft.rgba:       rgb
+Xcursor.size:   48
+Xcursor.theme:  Adwaita
 
 ! special
 *.foreground:   #F6F7F8
