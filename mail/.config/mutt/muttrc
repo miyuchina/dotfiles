@@ -1,0 +1,56 @@
+set realname = "Mi Yu"
+set from = "mi@afteryu.me"
+set mbox_type = Maildir
+set folder = ~/mail
+set spoolfile = +Inbox
+set postponed = +Drafts
+set trash = +Trash
+set record = +Sent
+set alias_file = ~/.config/mutt/alias
+set mailcap_path = ~/.config/mutt/mailcap
+set message_cachedir = ~/.cache/mutt/bodies
+set header_cache = ~/.cache/mutt/headers
+set sendmail = "msmtp -a fastmail"
+
+mailboxes =Inbox
+mailboxes =Archive
+mailboxes =Drafts
+mailboxes =Sent
+mailboxes =Subscriptions
+mailboxes ="Daily Messages"
+mailboxes =Spam
+mailboxes =Trash
+
+alternates "^mi@afteryu\.me$"
+alternates "^hello@afteryu\.me$"
+alternates "^miyu\.chs@gmail\.com$"
+alternates "^my4@williams\.edu$"
+
+set autoedit = yes                              # skip prompting for headers
+set charset = "utf-8"
+set confirmappend = no                          # don't prompt whether to append messages to mailbox
+set delete = yes                                # don't ask whether to delete messages on exit
+set edit_headers = yes                          # edit headers in $EDITOR
+set forward_quote = yes                         # include message in forwards
+set include = yes                               # auto include a copy of the message in reply
+set mail_check_stats = yes                      # display stats without opening mailbox
+set mark_old = no                               # new messages are always new until they have been read
+set markers = no                                # no line-continuation plus signs
+set menu_scroll = yes                           # scrolling behave normally
+set pager_context = 3                           # number of context lines to show
+set pager_index_lines = 10                      # number of index lines to show
+set pager_stop = yes                            # don't go to next message automatically
+set sort = threads                              # display threads
+set sort_aux = reverse-last-date-received       # ... chronologically
+set wait_key = no                               # don't prompt after <shell-escape>, etc.
+
+set sidebar_visible = yes                       # turn on sidebar
+set sidebar_format = "%B%* %?N?%N/?%S"          # sidebar: | mailbox        N/S |
+set index_format = "%-23d %-25.25L %s"
+set date_format = "%a %b %_d, %I:%M %p"
+set status_chars  = " *%A"
+set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+
+source /etc/mutt/notmuch-mutt.rc
+source ~/.config/mutt/binding.muttrc
+source ~/.config/mutt/color.muttrc
