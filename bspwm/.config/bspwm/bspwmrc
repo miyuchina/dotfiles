@@ -4,28 +4,34 @@ case "$(cat /proc/acpi/bbswitch | cut -d ' ' -f 2)" in
     ON)
         xrandr --setprovideroutputsource modesetting NVIDIA-0
         xrandr --auto
-        xrandr --output HDMI-0 --right-of eDP-1-1 --scale 2x2
-        bspc monitor eDP-1-1 -d 1 2 3 4 5
-        bspc monitor HDMI-0  -d 6 7 8 9 0
+        if [[ "$(xrandr --listmonitors | head -1 | cut -d ' ' -f 2)" == "1" ]]
+        then
+            bspc monitor -d 1 2 3 4 5 6 7 8 9 0
+        else
+            xrandr --output HDMI-0 --right-of eDP-1-1 --scale 2x2
+            bspc monitor eDP-1-1 -d 1 2 3 4 5
+            bspc monitor HDMI-0  -d 6 7 8 9 0
+        fi
         ;;
     OFF)
         bspc monitor -d 1 2 3 4 5 6 7 8 9 0
         ;;
 esac
 
-gpg-connect-agent /bye
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
 
 export XMODIFIERS="@im=fcitx"
 export QT_IM_MODULE=fcitx
 export GTK_IM_MODULE=fcitx
 
-sxhkd &
-fcitx &
-redshift &
-feh --no-fehbg --bg-fill $HOME/Pictures/wallpaper.jpg
-polybar nord &
-syncthing | logger &
+feh --no-fehbg --bg-fill ${HOME}/Pictures/wallpaper.jpg &
+sxhkd                 > ${LOCALPATH}/log/sxhkd.log     2>&1 &
+fcitx                 > ${LOCALPATH}/log/fcitx.log     2>&1 &
+redshift              > ${LOCALPATH}/log/redshift.log  2>&1 &
+polybar bar           > ${LOCALPATH}/log/polybar.log   2>&1 &
+syncthing -no-browser > ${LOCALPATH}/log/syncthing.log 2>&1 &
+battery-notify -b
 urxvtd --quiet --opendisplay --fork
 
 bspc config window_gap  25
@@ -40,6 +46,7 @@ bspc config gapless_monocle           true
 bspc config focus_follows_pointer     true
 bspc config remove_disabled_monitors  true
 bspc config remove_unplugged_monitors true
+bspc config initial_polarity          first_child
 bspc config external_rules_command    $HOME/.config/bspwm/external_rules
 
 bspc rule --add '*:zathura'  state=tiled
