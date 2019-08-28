@@ -12,10 +12,10 @@ XF86AudioLowerVolume
     amixer -q set Master 5%- unmute
 
 XF86MonBrightnessUp
-    xbacklight +5
+    light -A 5
 
 XF86MonBrightnessDown
-    xbacklight -5
+    light -U 5
 
 # terminal emulator
 super + Return
