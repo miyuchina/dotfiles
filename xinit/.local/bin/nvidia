@@ -9,7 +9,8 @@ load_nvidia() {
     sudo modprobe nvidia-drm
     sudo modprobe nvidia-modeset
     sudo modprobe nvidia
-    sudo mv /etc/X11/nvidia-xorg.conf /etc/X11/xorg.conf
+    sudo mv /etc/X11/nvidia-xorg.conf          /etc/X11/xorg.conf
+    sudo mv /etc/X11/xorg.conf.d/10-intel.conf /etc/X11/xorg.conf.d/10-intel.conf.bk
 }
 
 unload_nvidia() {
@@ -17,7 +18,8 @@ unload_nvidia() {
     sudo rmmod nvidia-modeset
     sudo rmmod nvidia
     echo OFF | sudo tee /proc/acpi/bbswitch
-    sudo mv /etc/X11/xorg.conf /etc/X11/nvidia-xorg.conf
+    sudo mv /etc/X11/xorg.conf                    /etc/X11/nvidia-xorg.conf
+    sudo mv /etc/X11/xorg.conf.d/10-intel.conf.bk /etc/X11/xorg.conf.d/10-intel.conf
 }
 
 help() {
