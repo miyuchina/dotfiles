@@ -29,6 +29,8 @@ export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
 export PASSWORD_STORE_DIR="${XDG_CONFIG_HOME}/pass"
 
 # fzf settings
+export PATH="${LOCALPATH}/share/fzf/bin:${PATH}"
+
 export FZF_DEFAULT_OPTS="
     --layout=reverse
     --color fg:-1,bg:-1,hl:230,fg+:3,bg+:-1,hl+:229
