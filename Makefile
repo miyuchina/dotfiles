@@ -1,4 +1,4 @@
-home_configs = bash bspwm compton dunst fonts git gtk mail nvim polybar redshift sxhkd urxvt xinit
+home_configs = bash bspwm dunst fonts git gtk nvim polybar redshift sxhkd urxvt xinit
 
 vim_dir = $(HOME)/.local/share/nvim
 vim_plug_dir = $(vim_dir)/plugged
