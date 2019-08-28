@@ -8,7 +8,6 @@ shopt -s cdspell
 
 alias ls='ls --color=auto'
 alias v="nvim"
-alias m="neomutt"
 
 # fzf
 source "${LOCALPATH}/share/fzf/shell/key-bindings.bash"
