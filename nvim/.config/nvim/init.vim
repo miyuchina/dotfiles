@@ -5,6 +5,8 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 
+set ignorecase
+set smartcase
 set nohlsearch
 set incsearch
 set inccommand=nosplit
@@ -25,18 +27,40 @@ let g:mapleader = "\<space>"
 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'sheerun/vim-polyglot'
+Plug 'gentoo/gentoo-syntax'
 Plug 'junegunn/fzf', {
             \ 'dir': '~/.local/share/fzf',
             \ 'do': './install --bin'
             \ }
 Plug 'junegunn/fzf.vim'
-Plug 'gentoo/gentoo-syntax'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'reedes/vim-pencil'
+Plug 'reedes/vim-lexical'
+Plug 'reedes/vim-litecorrect'
 Plug 'miyuchina/nvim-termrun'
 Plug 'miyuchina/vim-sane'
 call plug#end()
 
 " fzf
 nnoremap <leader><space> :Files<cr>
+
+" toggle writing mode
+let g:goyo_width = 80
+let g:pencil#textwidth = 72
+let g:lexical#thesaurus_key = '<leader>t'
+let g:limelight_conceal_ctermfg = 'gray'
+
+function ToggleWritingMode()
+    setlocal spell!
+    execute "Goyo"
+    execute "TogglePencil"
+    execute "Limelight!!"
+    call lexical#init()
+    call litecorrect#init()
+endfunction
+
+nnoremap <leader>w :call ToggleWritingMode()<cr>
 
 " ========== colorscheme ======================================================
 
