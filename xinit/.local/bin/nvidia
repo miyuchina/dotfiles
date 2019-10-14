@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-check_off() {
-    [[ "$(cat /proc/acpi/bbswitch | cut -d ' ' -f 2)" == "OFF" ]]
-}
-
 load_nvidia() {
     echo ON | sudo tee /proc/acpi/bbswitch
     sudo modprobe nvidia-drm
@@ -27,17 +23,9 @@ help() {
 }
 
 if [[ "$1" == "on" ]]; then
-    if check_off; then
-        load_nvidia
-    else
-        echo "NVIDIA card already on."
-    fi
+    load_nvidia
 elif [[ "$1" == "off" ]]; then
-    if check_off; then
-        echo "NVIDIA card already off."
-    else
-        unload_nvidia
-    fi
+    unload_nvidia
 else
     help
 fi
