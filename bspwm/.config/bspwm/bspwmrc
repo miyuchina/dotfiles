@@ -20,10 +20,13 @@ feh --no-fehbg --bg-fill ${HOME}/Pictures/wallpaper.jpg &
 sxhkd                 > ${LOCALPATH}/log/sxhkd.log     2>&1 &
 fcitx                 > ${LOCALPATH}/log/fcitx.log     2>&1 &
 redshift              > ${LOCALPATH}/log/redshift.log  2>&1 &
-polybar bar           > ${LOCALPATH}/log/polybar.log   2>&1 &
 syncthing -no-browser > ${LOCALPATH}/log/syncthing.log 2>&1 &
 battery-notify -b
 urxvtd --quiet --opendisplay --fork
+for m in $(polybar --list-monitors | cut -d ':' -f1)
+do
+    MONITOR=$m polybar --reload bar > ${LOCALPATH}/log/polybar.$m.log 2>&1 &
+done
 
 bspc config window_gap  25
 bspc config border_width 5
