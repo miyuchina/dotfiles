@@ -6,6 +6,7 @@ faded = ${xrdb:color8:#000000}
 alert = ${xrdb:color3:#ffff00}
 
 [bar/bar]
+monitor = ${env:MONITOR:}
 dpi = 220
 width = 100%
 height = 60
@@ -40,6 +41,7 @@ cursor-scroll = ns-resize
 
 [module/bspwm]
 type = internal/bspwm
+pin-workspaces = true
 
 label-focused = %name%
 label-focused-background = ${colors.focused}
@@ -83,9 +85,8 @@ label-full = FUL %percentage%%
 
 [module/ip]
 type = custom/script
-exec = /home/mi/.config/polybar/ip
-tail = true
-click-left = kill -USR1 %pid%
+exec = curl --max-time 2 --silent https://canihazip.com/s
+interval = 2
 
 [module/weather]
 type = custom/script
