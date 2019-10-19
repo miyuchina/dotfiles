@@ -42,7 +42,3 @@ export FZF_CTRL_T_OPTS="
     --preview 'highlight --out-format=xterm256 --style=pablo {} 2> /dev/null || tree -C {}'"
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
-
-if [ $(tty) == '/dev/tty1' ]; then
-    startx
-fi
