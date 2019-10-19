@@ -34,7 +34,7 @@ Xcursor.theme:  Adwaita
 ! urxvt
 URxvt.font:              xft:Noto Sans Mono:size=9, \
                          xft:Noto Sans CJK SC:size=12, \
-                         xft:xos4 Terminus:style=Book:size=9
+                         xft:Symbola:style=Regular:size=9
 URxvt.scrollBar:         false
 URxvt.internalBorder:    50
 URxvt.scrollTtyOutput:   false
