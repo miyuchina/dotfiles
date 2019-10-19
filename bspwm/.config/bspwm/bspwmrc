@@ -1,7 +1,6 @@
 #! /bin/sh
 
-if [[ "$(cat /proc/acpi/bbswitch | cut -d ' ' -f 2)" == "ON" \
-      && "$(xrandr --listmonitors | head -1 | cut -d ' ' -f 2)" == "2" ]]
+if [ "$(xrandr --listmonitors | head -1 | cut -d ' ' -f 2)" = "2" ]
 then
     bspc monitor eDP-1-1 -d 1 2 3 4 5
     bspc monitor HDMI-0  -d 6 7 8 9 0
