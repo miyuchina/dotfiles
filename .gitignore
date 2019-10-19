@@ -5,3 +5,4 @@ st-git/
 *.o
 battery-notify
 bookmarks
+*.spl
