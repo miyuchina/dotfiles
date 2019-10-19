@@ -14,7 +14,7 @@ color_clear = \033[0m
 install: home vim_plug wpa_supplicant
 
 .PHONY: clean
-clean: clean_home clean_vim_plug clean_terminal clean_wallpaper clean_wpa_supplicant
+clean: clean_home clean_vim_plug clean_wpa_supplicant
 
 .PHONY: home
 home:
@@ -46,31 +46,6 @@ clean_vim_plug:
 	[ -d $(vim_plug_dir) ] && \
 	    rm -rf $(vim_plug_dir)
 	@echo -e "$(color_red)Removed vim-plug.$(color_clear)"
-
-.PHONY: wallpaper
-wallpaper:
-	@echo -e "$(color_blue)Wallpaper directory: $(wallpaper_dir)$(color_clear)"
-	@echo -e "$(color_yellow)Creating wallpaper directory...$(color_clear)"
-	[ -d $(wallpaper_dir) ] || \
-	    mkdir --verbose $(wallpaper_dir)
-	@echo -e "$(color_blue)Wallpaper target: $(wallpaper_target)$(color_clear)"
-	@echo -e "$(color_blue)Wallpaper url: $(wallpaper_url)$(color_clear)"
-	@echo -e "$(color_yellow)Downloading wallpaper...$(color_clear)"
-	[ -f $(wallpaper_target) ] || \
-	    wget --no-verbose --output-document $(wallpaper_target) $(wallpaper_url)
-	@echo -e "$(color_yellow)Applying wallpaper...$(color_clear)"
-	-[ -x $(wallpaper_script) ] || \
-	    feh --bg-fill $(wallpaper_target)
-	@echo -e "$(color_yellow)Applied wallpaper!$(color_clear)"
-
-.PHONY: clean_wallpaper
-clean_wallpaper:
-	@echo -e "$(color_blue)Wallpaper target: $(wallpaper_target)$(color_clear)"
-	@echo -e "$(color_red)Removing wallpaper...$(color_clear)"
-	-rm --verbose $(wallpaper_target)
-	@echo -e "$(color_red)Removing feh script...$(color_clear)"
-	-rm --verbose $(wallpaper_script)
-	@echo -e "$(color_red)Removed wallpaper!$(color_clear)"
 
 .PHONY: wpa_supplicant
 wpa_supplicant:
