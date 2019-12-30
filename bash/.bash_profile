@@ -5,12 +5,11 @@ export HISTFILESIZE=10000
 export HISTCONTROL="erasedups:ignoreboth"
 export HISTIGNORE="exit:ls:bg:fg:history"
 
-export LOCALPATH="${HOME}/.local"
 export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_DATA_HOME="${HOME}/.local/share"
 
 # local bin
-export PATH="${LOCALPATH}/bin:${PATH}"
+export PATH="${HOME}/.local/bin:${PATH}"
 
 # HiDPI scaling
 export GDK_SCALE=2
@@ -29,7 +28,7 @@ export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
 export PASSWORD_STORE_DIR="${XDG_CONFIG_HOME}/pass"
 
 # fzf settings
-export PATH="${LOCALPATH}/share/fzf/bin:${PATH}"
+export PATH="${HOME}/.local/share/fzf/bin:${PATH}"
 
 export FZF_DEFAULT_OPTS="
     --layout=reverse

@@ -15,16 +15,16 @@ export XMODIFIERS="@im=fcitx"
 export QT_IM_MODULE=fcitx
 export GTK_IM_MODULE=fcitx
 
-feh --no-fehbg --bg-fill ${HOME}/Pictures/wallpaper.jpg &
-sxhkd                 > ${LOCALPATH}/log/sxhkd.log     2>&1 &
-fcitx                 > ${LOCALPATH}/log/fcitx.log     2>&1 &
-redshift              > ${LOCALPATH}/log/redshift.log  2>&1 &
-syncthing -no-browser > ${LOCALPATH}/log/syncthing.log 2>&1 &
+feh --no-fehbg --bg-fill ${HOME}/Pictures/wallpaper.png &
+sxhkd                 > ${HOME}/.local/log/sxhkd.log     2>&1 &
+fcitx                 > ${HOME}/.local/log/fcitx.log     2>&1 &
+redshift              > ${HOME}/.local/log/redshift.log  2>&1 &
+syncthing -no-browser > ${HOME}/.local/log/syncthing.log 2>&1 &
 battery-notify -b
 urxvtd --quiet --opendisplay --fork
 for m in $(polybar --list-monitors | cut -d ':' -f1)
 do
-    MONITOR=$m polybar --reload bar > ${LOCALPATH}/log/polybar.$m.log 2>&1 &
+    MONITOR=$m polybar --reload bar > ${HOME}/.local/log/polybar.$m.log 2>&1 &
 done
 
 bspc config window_gap  25
