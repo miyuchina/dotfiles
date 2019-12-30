@@ -24,7 +24,7 @@ font-0 = monospace:size=9;5
 
 modules-left = bspwm
 modules-center = date
-modules-right = pulseaudio battery ip
+modules-right = pulseaudio battery
 
 tray-position = right
 tray-padding = 0
@@ -82,16 +82,6 @@ full-at = 98
 label-charging = CHR %percentage%%
 label-discharging = BAT %percentage%%
 label-full = FUL %percentage%%
-
-[module/ip]
-type = custom/script
-exec = curl --max-time 2 --silent https://canihazip.com/s
-interval = 2
-
-[module/weather]
-type = custom/script
-exec = darksky
-interval = 120
 
 [settings]
 screenchange-reload = true
