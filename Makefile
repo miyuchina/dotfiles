@@ -1,4 +1,4 @@
-home_configs = bash bspwm dunst fonts git gtk nvim polybar redshift sxhkd xorg
+home_configs = bash bspwm dunst fonts git gtk nvim polybar ranger redshift rofi sxhkd xorg
 
 vim_dir = $(HOME)/.local/share/nvim
 vim_plug_dir = $(vim_dir)/plugged
@@ -11,10 +11,10 @@ color_blue = \033[1;34m
 color_clear = \033[0m
 
 .PHONY: install
-install: home vim_plug wpa_supplicant
+install: home vim_plug
 
 .PHONY: clean
-clean: clean_home clean_vim_plug clean_wpa_supplicant
+clean: clean_home clean_vim_plug
 
 .PHONY: home
 home:
@@ -46,17 +46,3 @@ clean_vim_plug:
 	[ -d $(vim_plug_dir) ] && \
 	    rm -rf $(vim_plug_dir)
 	@echo -e "$(color_red)Removed vim-plug.$(color_clear)"
-
-.PHONY: wpa_supplicant
-wpa_supplicant:
-	@echo -e "$(color_yellow)Installing wpa_supplicant configuration...$(color_clear)"
-	@echo -e "$(color_red)Enter your password!$(color_clear)"
-	./utils/wifi_password.sh
-	@echo -e "$(color_yellow)Installed wpa_supplicant configuration!$(color_clear)"
-
-.PHONY: clean_wpa_supplicant
-clean_wpa_supplicant:
-	@echo -e "$(color_yellow)Installing wpa_supplicant configuration...$(color_clear)"
-	@echo -e "$(color_red)Enter your password!$(color_clear)"
-	sudo rm /etc/wpa_supplicant/wpa_supplicant.conf
-	@echo -e "$(color_yellow)Installed wpa_supplicant configuration!$(color_clear)"

@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-sudo efibootmgr \
-    --disk /dev/nvme0n1 \
-    --part 1 \
-    --create \
-    --label "Gentoo Linux" \
-    --loader /vmlinuz-5.2.1-gentoo \
-    --unicode "root=/dev/nvme0n1p2 rw rootfstype=ext4"
