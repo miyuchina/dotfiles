@@ -3,5 +3,6 @@
 *.d
 *.o
 battery-notify
+!battery-notify/
 bookmarks
 *.spl

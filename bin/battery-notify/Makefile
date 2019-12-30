@@ -22,7 +22,7 @@ clean:
 
 .PHONY: install
 install: battery-notify
-	mkdir -p $(DESTDIR)$(PREFIX)/bin
+	-mkdir -p $(DESTDIR)$(PREFIX)/bin
 	cp $< $(DESTDIR)$(PREFIX)/bin/battery-notify
 
 .PHONY: uninstall
