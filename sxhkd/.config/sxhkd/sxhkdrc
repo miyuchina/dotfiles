@@ -6,16 +6,16 @@ XF86AudioMute
     pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 XF86AudioRaiseVolume
-    amixer -q set Master 5%+ unmute
+    pactl set-sink-volume @DEFAULT_SINK@ +5%
 
 XF86AudioLowerVolume
-    amixer -q set Master 5%- unmute
+    pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 XF86MonBrightnessUp
-    xbacklight +5
+    light -A 5
 
 XF86MonBrightnessDown
-    xbacklight -5
+    light -U 5
 
 # terminal emulator
 super + Return
@@ -23,7 +23,7 @@ super + Return
 
 # launcher
 super + @space
-    urxvtc -title 'launcher' -e bash -ic "compgen -c | fzf | (xargs nohup > /dev/null 2>&1 &)"
+    rofi -show drun
 
 # make sxhkd reload its configuration files:
 super + Escape
