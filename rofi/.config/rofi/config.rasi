@@ -1,0 +1,88 @@
+/* vim: filetype=css:
+ */
+
+configuration {
+    dpi: 220;
+    modi: "drun";
+    show-icons: true;
+    lines: 10;
+}
+
+/* global settings and color variables */
+* {
+    black: #282C34;
+    bright-black: #646974;
+
+    red: #E06C75;
+    bright-red: #BE5046;
+
+    green: #98C379;
+    bright-green: #98C379;
+
+    yellow: #E5C07B;
+    bright-yellow: #D19A66;
+
+    blue: #61AFEF;
+    bright-blue: #61AFEF;
+
+    magenta: #C678DD;
+    bright-magenta: #C678DD;
+
+    cyan: #56B6C2;
+    bright-cyan: #56B6C2;
+
+    white: #F6F7F8;
+    bright-white: #E1E2E4;
+
+    scrollbarcolor:   @red;
+    background-color: @black;
+    color: @bright-white;
+
+    font: "Noto Sans Display 12";
+}
+
+window {
+    border: 5px;
+    border-color: @yellow;
+    padding: 1.5em;
+}
+
+mainbox {
+    children: [inputbar, listview];
+}
+
+listview {
+    margin: 0.5em 0 0 0;
+}
+
+element {
+    padding: 0.5em;
+}
+
+element normal.normal {
+}
+
+element normal.urgent {
+    text-color: @bright-yellow;
+}
+
+element normal.active {
+    text-color: @bright-red;
+}
+
+element selected.normal {
+    background-color: @bright-black;
+}
+
+element selected.urgent {
+    text-color: @bright-yellow;
+}
+
+element selected.active {
+    text-color: @bright-red;
+}
+
+prompt {
+    padding: 0.1em 0.5em 0 0.3em;
+    color: @yellow;
+}

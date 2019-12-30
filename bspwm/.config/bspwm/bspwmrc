@@ -40,7 +40,6 @@ bspc config focus_follows_pointer     true
 bspc config remove_disabled_monitors  true
 bspc config remove_unplugged_monitors true
 bspc config initial_polarity          first_child
-bspc config external_rules_command    $HOME/.config/bspwm/external_rules
 
 bspc rule --add 'Zathura:*'     state=tiled
 bspc rule --add 'Pavucontrol:*' state=floating
