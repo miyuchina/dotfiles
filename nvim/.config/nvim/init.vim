@@ -27,7 +27,6 @@ let g:mapleader = "\<space>"
 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'sheerun/vim-polyglot'
-Plug 'gentoo/gentoo-syntax'
 Plug 'junegunn/fzf', {
             \ 'dir': '~/.local/share/fzf',
             \ 'do': './install --bin'
