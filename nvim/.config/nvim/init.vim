@@ -30,30 +30,12 @@ Plug 'gentoo/gentoo-syntax'
 Plug 'cespare/vim-toml'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'reedes/vim-pencil'
-Plug 'reedes/vim-lexical'
 Plug 'miyuchina/nvim-termrun'
 Plug 'miyuchina/vim-sane'
 call plug#end()
 
 " fzf
 nnoremap <leader><space> :Files<cr>
-
-" toggle writing mode
-let g:goyo_width = 80
-let g:pencil#textwidth = 72
-let g:lexical#thesaurus_key = '<leader>t'
-let g:limelight_conceal_ctermfg = 'gray'
-
-function ToggleWritingMode()
-    setlocal spell!
-    execute "Goyo"
-    execute "TogglePencil"
-    call lexical#init()
-endfunction
-
-nnoremap <leader>w :call ToggleWritingMode()<cr>
 
 " ========== colorscheme ======================================================
 
