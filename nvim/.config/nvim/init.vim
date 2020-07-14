@@ -41,6 +41,9 @@ nnoremap <leader><space> :Files<cr>
 
 colorscheme sane
 
+set textwidth=80
+set colorcolumn=+1
+
 augroup CustomFileType
     autocmd!
     autocmd FileType html,css set softtabstop=2 shiftwidth=2
