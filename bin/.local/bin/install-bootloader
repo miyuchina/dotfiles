@@ -1,0 +1,10 @@
+#!/bin/sh
+
+sudo efibootmgr \
+    --disk "/dev/nvme0n1" \
+    --part "2" \
+    --create \
+    --label "Gentoo Linux" \
+    --loader "/vmlinuz-5.8.0-rc5+" \
+    --unicode "quiet" \
+    --verbose
