@@ -8,9 +8,29 @@ shopt -s cdspell
 
 PROMPT_COMMAND='history -a'
 
-alias ls='ls --color=auto'
+# aliases
+alias l="ls"
+alias la="ls -a"
+alias ll="ls -al"
+alias lh="ls -alh"
 alias v="nvim"
+alias reboot="sudo runit-init 6"
+alias shutdown="sudo runit-init 0"
+
+function eu() {
+    equery uses $@
+}
+
+function ev() {
+    equery which $@ | xargs nvim
+}
+
+function kg() {
+    zgrep -i "$@" /proc/config.gz
+}
 
 # fzf
-source "${HOME}/.local/share/fzf/shell/key-bindings.bash"
-source "${HOME}/.local/share/fzf/shell/completion.bash"
+. "/usr/share/fzf/key-bindings.bash"
+
+# bash completion
+. "/usr/share/bash-completion/bash_completion"
