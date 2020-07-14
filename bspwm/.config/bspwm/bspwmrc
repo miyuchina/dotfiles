@@ -1,5 +1,6 @@
-#! /bin/sh
+#!/bin/sh
 
+# monitor setup
 if [ "$(xrandr --listmonitors | head -1 | cut -d ' ' -f 2)" = "2" ]
 then
     bspc monitor eDP-1-1 -d 1 2 3 4 5
@@ -8,25 +9,27 @@ else
     bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 fi
 
+# gpg
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
 
+# fcitx
 export XMODIFIERS="@im=fcitx"
 export QT_IM_MODULE=fcitx
 export GTK_IM_MODULE=fcitx
 
+# startup programs
 feh --no-fehbg --bg-fill ${HOME}/Pictures/wallpaper.png &
-sxhkd                 > ${HOME}/.local/log/sxhkd.log     2>&1 &
-fcitx                 > ${HOME}/.local/log/fcitx.log     2>&1 &
-redshift              > ${HOME}/.local/log/redshift.log  2>&1 &
-syncthing -no-browser > ${HOME}/.local/log/syncthing.log 2>&1 &
-battery-notify -b
+sxhkd > ${HOME}/.local/log/sxhkd.log 2>&1 &
+fcitx > ${HOME}/.local/log/fcitx.log 2>&1 &
 urxvtd --quiet --opendisplay --fork
-for m in $(polybar --list-monitors | cut -d ':' -f1)
-do
+
+# polybar
+for m in $(polybar --list-monitors | cut -d ':' -f1); do
     MONITOR=$m polybar --reload bar > ${HOME}/.local/log/polybar.$m.log 2>&1 &
 done
 
+# bspwm config
 bspc config window_gap  25
 bspc config border_width 5
 

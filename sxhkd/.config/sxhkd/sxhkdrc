@@ -35,7 +35,7 @@ super + Escape
 
 # quit/restart bspwm
 super + alt + {q,r}
-        killall redshift; killall battery-notify; bspc {quit,wm -r}
+    bspc {quit,wm -r}
 
 # close and kill
 super + {_,shift + }w
