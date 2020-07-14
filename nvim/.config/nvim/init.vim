@@ -26,10 +26,9 @@ let g:mapleader = "\<space>"
 " ========== plugins ==========================================================
 
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'junegunn/fzf', {
-            \ 'dir': '~/.local/share/fzf',
-            \ 'do': './install --bin'
-            \ }
+Plug 'gentoo/gentoo-syntax'
+Plug 'cespare/vim-toml'
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'reedes/vim-pencil'
