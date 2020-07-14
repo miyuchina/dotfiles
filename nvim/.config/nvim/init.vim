@@ -55,3 +55,4 @@ function! SynGroup()
 endfunction
 
 nnoremap <leader>s :call SynGroup()<cr>
+nnoremap <leader>x :!chmod +x %<cr>
