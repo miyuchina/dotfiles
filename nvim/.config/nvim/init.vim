@@ -41,6 +41,11 @@ nnoremap <leader><space> :Files<cr>
 
 colorscheme sane
 
+augroup CustomFileType
+    autocmd!
+    autocmd FileType html,css set softtabstop=2 shiftwidth=2
+augroup END
+
 function! SynGroup()
     let l:s = synID(line('.'), col('.'), 1)
     echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
