@@ -20,9 +20,14 @@ export CCACHE_DIR="${XDG_CACHE_HOME}/ccache"            # ccache
 export LESSHISTFILE="${XDG_CACHE_HOME}/less/history"    # less
 export RXVT_SOCKET="${XDG_RUNTIME_DIR}/urxvtd"          # urxvt
 export XAUTHORITY="${XDG_RUNTIME_DIR}/Xauthority"       # xorg-xauth
+export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"            # rustup
+export CARGO_HOME="${XDG_DATA_HOME}/cargo"              # cargo
 
 # ccache
 export PATH="/usr/lib/ccache/bin:${PATH}"
+
+# rust
+export PATH="${CARGO_HOME}/bin:${PATH}"
 
 # local bin
 export PATH="${HOME}/.local/bin:${PATH}"
