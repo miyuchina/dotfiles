@@ -16,6 +16,8 @@ set splitright
 
 set number
 set showcmd
+set noshowmode
+
 set textwidth=80
 set colorcolumn=+1
 
@@ -33,7 +35,8 @@ Plug 'cespare/vim-toml'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'miyuchina/nvim-termrun'
-Plug 'miyuchina/vim-sane'
+Plug 'ayu-theme/ayu-vim'
+Plug 'itchyny/lightline.vim'
 call plug#end()
 
 " fzf
@@ -41,8 +44,15 @@ nnoremap <leader><space> :Files<cr>
 
 " ========== colorscheme ======================================================
 
-colorscheme sane
+set termguicolors
+let ayucolor="dark"
+colorscheme ayu
+let g:lightline = { 'colorscheme': 'ayu_dark' }
 
+highlight Comment gui=italic
+highlight String  gui=italic
+highlight Keyword gui=italic
+highlight Type    gui=italic
 
 augroup CustomFileType
     autocmd!
