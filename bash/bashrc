@@ -27,6 +27,3 @@ function kg() {
 
 # fzf
 . "/usr/share/fzf/key-bindings.bash"
-
-# bash completion
-. "/usr/share/bash-completion/bash_completion"

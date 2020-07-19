@@ -1,8 +1,24 @@
-.uuid
+# vim
 .netrwhist
-*.d
-*.o
-battery-notify
-!battery-notify/
-bookmarks
-*.spl
+
+# zoom
+zoomus.conf
+Unknown Organization
+
+# fcitx
+fcitx
+
+# dconf
+dconf
+
+# gnupg
+gnupg/*
+!gnupg/gpg-agent.conf
+!gnupg/sshcontrol
+
+# htop
+htop
+
+# pulseaudio
+pulse
+pavucontrol.ini
