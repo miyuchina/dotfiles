@@ -54,9 +54,9 @@ highlight String  gui=italic
 highlight Keyword gui=italic
 highlight Type    gui=italic
 
-augroup CustomFileType
+augroup Indent
     autocmd!
-    autocmd FileType html,css set softtabstop=2 shiftwidth=2
+    autocmd FileType html,css,yaml set softtabstop=2 shiftwidth=2
 augroup END
 
 function! SynGroup()
