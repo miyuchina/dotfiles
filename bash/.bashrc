@@ -9,10 +9,6 @@ shopt -s cdspell
 PROMPT_COMMAND='history -a'
 
 # aliases
-alias l="ls"
-alias la="ls -a"
-alias ll="ls -al"
-alias lh="ls -alh"
 alias v="nvim"
 alias reboot="sudo runit-init 6"
 alias shutdown="sudo runit-init 0"
