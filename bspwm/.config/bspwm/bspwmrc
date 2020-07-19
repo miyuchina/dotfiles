@@ -22,7 +22,6 @@ export GTK_IM_MODULE=fcitx
 feh --no-fehbg --bg-fill ${HOME}/Pictures/wallpaper.png &
 sxhkd > ${HOME}/.local/log/sxhkd.log 2>&1 &
 fcitx > ${HOME}/.local/log/fcitx.log 2>&1 &
-urxvtd --quiet --opendisplay --fork
 
 # polybar
 for m in $(polybar --list-monitors | cut -d ':' -f1); do
