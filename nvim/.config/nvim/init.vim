@@ -30,8 +30,8 @@ let g:mapleader = "\<space>"
 " ========== plugins ==========================================================
 
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'sheerun/vim-polyglot'
 Plug 'gentoo/gentoo-syntax'
-Plug 'cespare/vim-toml'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'miyuchina/nvim-termrun'
