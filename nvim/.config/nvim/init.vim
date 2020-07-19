@@ -16,6 +16,8 @@ set splitright
 
 set number
 set showcmd
+set textwidth=80
+set colorcolumn=+1
 
 set undofile
 
@@ -41,8 +43,6 @@ nnoremap <leader><space> :Files<cr>
 
 colorscheme sane
 
-set textwidth=80
-set colorcolumn=+1
 
 augroup CustomFileType
     autocmd!
